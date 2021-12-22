@@ -14,6 +14,7 @@
             table {
                 width: 500px;
                 border-collapse: collapse;
+                position: relative;
             }
 
             td, th {
@@ -21,9 +22,31 @@
                 padding: 10px;
             }
 
+            caption {
+                font-size: 1em;
+                font-weight: bold;
+                padding: 10px;
+                background-color: lightgray;
+            }
+
             thead, tfoot {
-                background-color: gray;
+                background-color: #383838;
                 color: white;
+            }
+
+            thead > tr > th {
+                position: sticky;
+                top: -1px;
+                background-color: #383838;
+            }
+
+            tbody > tr:nth-child(odd) {     /* PAR: 2n-1 */
+                background-color: white;
+                font-weight: bold;
+            }
+
+            tbody > tr:nth-child(even) {    /* ÍMPAR: 2n */
+                background-color: lightgray;
             }
 
             td.num {
@@ -38,6 +61,7 @@
         <!--
             ANATOMIA PARA TABELAS GRANDES.
             TABLE
+                CAPTION
                 THEAD
                     TR, TD, TH
                 TBODY
@@ -46,10 +70,11 @@
                     TR, TD, TH
         -->
         <table>
+            <caption>População das Unidades Federativas</caption>
             <thead>
                 <tr>
-                    <th>Estado</th>
-                    <th>População</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col" style="width: 60px;">População</th>
                 </tr>
             </thead>
 
@@ -178,21 +203,22 @@
                     <td>Acre</td>
                     <td class="num">881.935</td>
                 </tr>
+            
+
+                <tr>
+                    <td>Amapá</td>
+                    <td class="num">845.731</td>
+                </tr>
+
+                <tr>
+                    <td>Roraima</td>
+                    <td class="num">605.761</td>
+                </tr>
             </tbody>
-
-            <tr>
-                <td>Amapá</td>
-                <td class="num">845.731</td>
-            </tr>
-
-            <tr>
-                <td>Roraima</td>
-                <td class="num">605.761</td>
-            </tr>
 
             <tfoot>
                 <tr>
-                    <th>Total de Habitantes</th>
+                    <th scope="row">Total de Habitantes</th>
                     <td class="num"><strong>210.147.125</strong></td>
                 </tr>
             </tfoot>
